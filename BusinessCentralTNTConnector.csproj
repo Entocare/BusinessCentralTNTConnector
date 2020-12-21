@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8897C7C7-C40C-4FB8-A1CB-EED7E84B5ABF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BusinessCentralTNTConnector</RootNamespace>
+    <AssemblyName>BusinessCentralTNTConnector</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>C:\Setups\Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>BusinessCentralTNTConnector.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HTMLAddressLabelRenderer, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>TNTConnector\xslt-dlls\HTMLAddressLabelRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="HTMLCommercialInvoiceRenderer, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>TNTConnector\xslt-dlls\HTMLCommercialInvoiceRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="HTMLConsignmentNoteRenderer, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>TNTConnector\xslt-dlls\HTMLConsignmentNoteRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="HTMLManifestRenderer, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>TNTConnector\xslt-dlls\HTMLManifestRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Client, Version=7.5.1.20914, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Client.7.5.1\lib\net45\Microsoft.OData.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Core, Version=7.5.1.20914, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Core.7.5.1\lib\portable-net45+win8+wpa81\Microsoft.OData.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm, Version=7.5.1.20914, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Edm.7.5.1\lib\portable-net45+win8+wpa81\Microsoft.OData.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=7.5.1.20914, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Spatial.7.5.1\lib\portable-net45+win8+wpa81\Microsoft.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBCTNT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBCTNT.Designer.cs">
+      <DependentUpon>AboutBCTNT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BCConnector\BusinessCentralConnector.cs" />
+    <Compile Include="EUCountries.cs" />
+    <Compile Include="BCConnector\ODataClient1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ODataClient1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BCConnector\ODataClientEntApi.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ODataClientEntApi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MDIParent1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent1.Designer.cs">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdersForm.Designer.cs">
+      <DependentUpon>OrdersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackageDimensionsStore.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShippingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShippingForm.Designer.cs">
+      <DependentUpon>ShippingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TNTConnector\PrintHTML\PrintHTMLQueue.cs" />
+    <Compile Include="TNTConnector\PrintHTML\PrintSender.cs" />
+    <Compile Include="TNTConnector\TNTConnectorShipRequest.cs" />
+    <Compile Include="TNTConnector\MyXMLChildIndex.cs" />
+    <Compile Include="TNTConnector\MyXMLChildEnumerable.cs" />
+    <Compile Include="TNTConnector\MyXMLDocument.cs" />
+    <Compile Include="TNTConnector\SalesOrder.cs" />
+    <Compile Include="TNTConnector\Tests\TNTConnectorShipRequestTest.cs" />
+    <Compile Include="TNTConnector\TNTPackageAnalyser.cs" />
+    <Compile Include="TNTConnector\TNTResult.cs" />
+    <Compile Include="TNTConnector\Tests\TNTResultTest.cs" />
+    <Compile Include="TNTConnector\TNTShipRequest.cs" />
+    <Compile Include="TNTConnector\Tests\TNTShipRequestTest.cs" />
+    <EmbeddedResource Include="AboutBCTNT.resx">
+      <DependentUpon>AboutBCTNT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent1.resx">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdersForm.resx">
+      <DependentUpon>OrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ShippingForm.resx">
+      <DependentUpon>ShippingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="BCConnector\ODataClient1.ttinclude" />
+    <None Include="BCConnector\ODataClientEntApi.ttinclude" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Entocare.NAV.ShippingPostalAddress.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Content Include="TNTConnector\xsd\commonDefinitions.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TNTConnector\xsd\ShipmentRequestIN.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BCConnector\ODataClient1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ODataClient1.cs</LastGenOutput>
+    </Content>
+    <Content Include="BCConnector\ODataClientEntApi.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ODataClientEntApi.cs</LastGenOutput>
+    </Content>
+    <Content Include="TNTConnector\xslt-dlls\HTMLAddressLabelRenderer.dll" />
+    <Content Include="TNTConnector\xslt-dlls\HTMLCommercialInvoiceRenderer.dll" />
+    <Content Include="TNTConnector\xslt-dlls\HTMLConsignmentNoteRenderer.dll" />
+    <Content Include="TNTConnector\xslt-dlls\HTMLManifestRenderer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
