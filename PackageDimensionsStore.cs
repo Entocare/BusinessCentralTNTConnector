@@ -23,6 +23,7 @@ namespace BusinessCentralTNTConnector
             {"M",  new PackageDimensions(0.4, 0.3, 0.2, 0.6)},
             {"L",  new PackageDimensions(0.4, 0.3, 0.3, 0.9)},
             {"XL",  new PackageDimensions(0.6, 0.4, 0.35, 1.8)},
+            {"XXL", new PackageDimensions(0.6, 0.4, 0.4, 2.1) }
         };
 
         /// <summary>

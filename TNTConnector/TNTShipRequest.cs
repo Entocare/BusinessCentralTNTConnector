@@ -47,8 +47,9 @@ namespace BusinessCentralTNTConnector.TNTConnector
         public const string SenderContactEmail = "post@entocare.nl";
 
         //collect time
-        public const string PrefCollecttimeFrom = "16:00";
-        public const string PrefCollecttimeTo = "18:00";                     //"17:30"
+        public const string PrefCollecttimeFromDbg = "14:55";
+        public const string PrefCollecttimeFromLiv = "16:00";
+        public const string PrefCollecttimeTo = "18:00";    //We willen tussen 16:00 en 18:00, maar hij moppert als niet overlapt met 15:00
 
         //other standard texts
         public const string Deliveryinst_HoldForPickup = "Hold for pickup";
@@ -127,7 +128,7 @@ namespace BusinessCentralTNTConnector.TNTConnector
             xml.NavigateThis("./COLLECTION");
             xml.AddNewElt(".", "SHIPDATE", TNTDate(CollectionDate), 12);
             xml.AddNewElt(".", "PREFCOLLECTTIME");
-            xml.AddNewElt("./PREFCOLLECTTIME", "FROM", PrefCollecttimeFrom, 5);
+            xml.AddNewElt("./PREFCOLLECTTIME", "FROM", Debug ? PrefCollecttimeFromDbg : PrefCollecttimeFromLiv, 5);
             xml.AddNewElt("./PREFCOLLECTTIME", "TO", PrefCollecttimeTo, 5);
             xml.AddNewElt(".", "COLLINSTRUCTIONS", "", 24);
             //Note: just before the end of the CONSIGNMENTBATCH, one or more CONSIGNMENT elements will be added later

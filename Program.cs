@@ -9,7 +9,7 @@ namespace BusinessCentralTNTConnector
 {
     static class Program
     {
-        private const bool Debug = true;
+        private const MDIParent1.Mode mode = MDIParent1.Mode.FullDebug; //test account on TNT-side, serious instance on BC-side (chosen company!)
 
         /// <summary>
         /// The main entry point for the application.
@@ -26,7 +26,7 @@ namespace BusinessCentralTNTConnector
             //Forms part startup
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MDIParent1 mainform = new MDIParent1(Debug);
+            MDIParent1 mainform = new MDIParent1(mode);
             Application.Run(mainform);
         }
     }

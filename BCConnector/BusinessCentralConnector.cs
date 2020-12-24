@@ -48,8 +48,9 @@ namespace BCConnector
         private const string ProductionPassword = "N2Fdti6V7WYL08zBoLPu8QIhcKJPEq16JDAOZRbCoQs=";
 
         //companies
-        public static readonly Guid DefaultCompanyID = new Guid("8f689ff7-caa1-46ad-93b1-0865ea2873c3");  //Entocare LIVE
-        public static readonly Guid DefaultCompanyIDSandbox = new Guid("23d4895a-1135-ea11-a812-000d3aab1e26"); //test3 Sandbox lang=NL, //new Guid("942260f5-d2ff-4a89-b1c4-c9db5d350bd0");  //Entocare CV Sandbox Eng
+        //public static readonly Guid DefaultCompanyID = new Guid("8f689ff7-caa1-46ad-93b1-0865ea2873c3");  //Entocare LIVE
+        public static readonly Guid DefaultCompanyID = new Guid("07abc4ce-1d83-ea11-a813-000d3aaf935d");    //Test april 2020
+        public static readonly Guid DefaultCompanyIDSandbox = new Guid("cba76fc3-216c-ea11-a815-000d3aafcaa0"); //Entocare CV with OnValidate Eng
         public Guid CompanyId { get; private set; }               //Id of current company
         private Dictionary<string, MyCompany> companies = null;   //cache... only filled on demand
 

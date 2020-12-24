@@ -118,7 +118,7 @@ namespace BusinessCentralTNTConnector
 
         /// <summary>
         /// Create a correct TNT service code from service codes registered for TNT in Business Central
-        /// - Omit the "TNT" prefix
+        /// - Omit the "TNT-" prefix
         /// - Add the letter "N" (for Non-doc) in case the country is not NL
         /// </summary>
         /// <param name="ServiceCode">Service code registered for TNT in Business Central</param>
@@ -126,9 +126,9 @@ namespace BusinessCentralTNTConnector
         /// <returns>the corrected code</returns>
         private string correctTNTServiceCode(string ServiceCode, string CountryCode)
         {
-            if (ServiceCode.StartsWith("TNT"))
+            if (ServiceCode.StartsWith("TNT-"))
             {
-                ServiceCode = ServiceCode.Substring(3);
+                ServiceCode = ServiceCode.Substring(4);
             }
             if (CountryCode != "NL")
             {
