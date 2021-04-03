@@ -33,7 +33,7 @@ namespace BusinessCentralTNTConnector.TNTConnector
 
         //live logins
         private const string LoginCompany = "NTOCARE";
-        private const string LoginPassword = "tnt12345";
+        private const string LoginPassword = "tnt12345";  //test of je live logins gebruikt: hier een 9 achter zetten, dan geeft TNT login fout - gebruik zending uit verleden
 
         //sender data
         public const string SenderCompanyname = "ENTOCARE C.V.";

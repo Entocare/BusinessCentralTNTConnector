@@ -45,11 +45,11 @@ namespace BCConnector
         //authentication
         private const string Username = "WOLTER";
         private const string SandboxPassword = "6Jur7Y7LyC8TsABVSbPpm+h4F78GQhKBxLVuh5xvbTQ=";
-        private const string ProductionPassword = "N2Fdti6V7WYL08zBoLPu8QIhcKJPEq16JDAOZRbCoQs=";
+        private const string ProductionPassword = "t7N1xxhhvrHjeKGDUU1ZpcHlK/f2vHdiqRTuQZaBov4=";
 
         //companies
-        //public static readonly Guid DefaultCompanyID = new Guid("8f689ff7-caa1-46ad-93b1-0865ea2873c3");  //Entocare LIVE
-        public static readonly Guid DefaultCompanyID = new Guid("07abc4ce-1d83-ea11-a813-000d3aaf935d");    //Test april 2020
+        public static readonly Guid DefaultCompanyID = new Guid("8f689ff7-caa1-46ad-93b1-0865ea2873c3");  //Entocare LIVE
+        //public static readonly Guid DefaultCompanyID = new Guid("07abc4ce-1d83-ea11-a813-000d3aaf935d");    //Test april 2020
         public static readonly Guid DefaultCompanyIDSandbox = new Guid("cba76fc3-216c-ea11-a815-000d3aafcaa0"); //Entocare CV with OnValidate Eng
         public Guid CompanyId { get; private set; }               //Id of current company
         private Dictionary<string, MyCompany> companies = null;   //cache... only filled on demand

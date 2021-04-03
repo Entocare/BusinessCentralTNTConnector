@@ -11,7 +11,7 @@ namespace BusinessCentralTNTConnector.TNTConnector
     {
         public const string ShipRequestSchemaUri = @".\TNTConnector\xsd\ShipmentRequestIN.xsd";
 
-        public const string OutputFile = @".\TNTConnector\ShipRequest.xml";
+        public const string OutputFile = @"D:\ShipRequest.xml";  //@".\TNTConnector\ShipRequest.xml"
 
         public static void DoTheTests()
         {

@@ -17,12 +17,7 @@ namespace BusinessCentralTNTConnector
     /// <summary>
     /// Form for signing up a single SalesOrder for pickup by TNT
     /// It has a "Sign Up" button for starting the process, as well as various fields for checking progress.
-    /// As a result, a maximum of 4 documents are sent to the printer: it tells which docs.
-    /// 
-    /// TODO:
-    /// - Alles hieronder nog 1x goed testen, met de nieuwigheden:
-    ///   > Pakketformaat uit BC
-    ///   > TrackingNo terugmelden aan BC (er stond hier een TODO dat dit nog niet getest was - dacht van wel)
+    /// As a result, a maximum of 4 documents are sent to the printer: it tells which docs. 
     /// </summary>
     public partial class ShippingForm : Form
     {

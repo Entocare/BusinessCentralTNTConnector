@@ -30,7 +30,7 @@ namespace BusinessCentralTNTConnector
             /// <summary>
             /// BC_connector looks at live instance (chosen company), TNT-connector still uses test account
             /// </summary>
-            TNTDebug,
+            TNTDebugBCSerious,
 
             /// <summary>
             /// BC_connector looks at live instance (chosen company -- should be the final one), TNT-connector uses live account
@@ -45,8 +45,9 @@ namespace BusinessCentralTNTConnector
         {
             InitializeComponent();
             //initialize the 2 needed connectors
-            TNTCon = new TNTConnectorShipRequest(Debug: mode == Mode.FullDebug || mode == Mode.TNTDebug);
+            TNTCon = new TNTConnectorShipRequest(Debug: mode == Mode.FullDebug || mode == Mode.TNTDebugBCSerious);
             ECon = BusinessCentralConnector.GetEntocareBCConnector(Debug: mode == Mode.FullDebug);
+            ECon.Ectx.Timeout = 100; //100 seconds
 
             //show the orders form
             _ordersForm = new OrdersForm(this);
