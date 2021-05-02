@@ -81,6 +81,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>TNTConnector\xslt-dlls\HTMLManifestRenderer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.OData.Client, Version=7.5.1.20914, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.OData.Client.7.5.1\lib\net45\Microsoft.OData.Client.dll</HintPath>
     </Reference>
@@ -94,7 +97,32 @@
       <HintPath>..\packages\Microsoft.Spatial.7.5.1\lib\portable-net45+win8+wpa81\Microsoft.Spatial.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -114,17 +142,19 @@
       <DependentUpon>AboutBCTNT.cs</DependentUpon>
     </Compile>
     <Compile Include="BCConnector\BusinessCentralConnector.cs" />
-    <Compile Include="EUCountries.cs" />
-    <Compile Include="BCConnector\ODataClient1.cs">
+    <Compile Include="BCConnector\ODataClient1.cs" />
+    <Compile Include="BCConnector\ODataClient11.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ODataClient1.tt</DependentUpon>
     </Compile>
-    <Compile Include="BCConnector\ODataClientEntApi.cs">
+    <Compile Include="Connected Services\ODateClientEntApi\ShippingPostalAddress.cs" />
+    <Compile Include="Connected Services\ODateClientEntApi\ODataClientEntApi.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ODataClientEntApi.tt</DependentUpon>
     </Compile>
+    <Compile Include="EUCountries.cs" />
     <Compile Include="MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,8 +211,10 @@
       <DependentUpon>ShippingForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="BCConnector\ODataClient1.ttinclude" />
-    <None Include="BCConnector\ODataClientEntApi.ttinclude" />
     <None Include="BusinessCentralTNTConnector_TemporaryKey.pfx" />
+    <None Include="Connected Services\ODateClientEntApi\ConnectedService.json" />
+    <None Include="Connected Services\ODateClientEntApi\ODataClientEntApi.ttinclude" />
+    <None Include="Connected Services\ODateClientEntApi\ODataT4CodeGenFilesManager.ttinclude" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Entocare.NAV.ShippingPostalAddress.datasource" />
     <None Include="Properties\Settings.settings">
@@ -194,6 +226,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Connected Services\ODateClientEntApi\ODateClientEntApiCsdl.xml" />
+    <Content Include="BCConnector\ODataClient1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ODataClient11.cs</LastGenOutput>
+    </Content>
+    <Content Include="Connected Services\ODateClientEntApi\ODataClientEntApi.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ODataClientEntApi.cs</LastGenOutput>
+    </Content>
+    <Content Include="Connected Services\ODateClientEntApi\README.txt" />
     <Content Include="TNTConnector\xsd\commonDefinitions.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -207,14 +249,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BCConnector\ODataClient1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ODataClient1.cs</LastGenOutput>
-    </Content>
-    <Content Include="BCConnector\ODataClientEntApi.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ODataClientEntApi.cs</LastGenOutput>
-    </Content>
     <Content Include="TNTConnector\xslt-dlls\HTMLAddressLabelRenderer.dll" />
     <Content Include="TNTConnector\xslt-dlls\HTMLCommercialInvoiceRenderer.dll" />
     <Content Include="TNTConnector\xslt-dlls\HTMLConsignmentNoteRenderer.dll" />
