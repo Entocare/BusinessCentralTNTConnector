@@ -40,7 +40,7 @@ namespace BCConnector
         //API BaseURL parts, in order of appearance
         public const string BCBaseURL = "https://api.businesscentral.dynamics.com/v1.0";
         public const string TenantGUID = "02a4d0db-d99f-46f0-b5de-073bf122086b";  //deliberately kept as string, not Guid
-        public const string EntocareApiURL = "/Entocare/E/v1.0";
+        public const string EntocareApiURL = "/Entocare/E/v2.0";                  //update version no. on API changes!
 
         //authentication
         private const string Username = "WOLTER";
