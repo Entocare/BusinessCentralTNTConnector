@@ -337,7 +337,7 @@ namespace BCConnector
 
             public ChangeListener(T obj, BusinessCentralConnector owner) : this(owner)
             {
-                collection.Add(obj);
+                this.Add(obj);
             }
 
             public void Add(T obj)

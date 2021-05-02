@@ -26,25 +26,50 @@ namespace BusinessCentralTNTConnector
         private TNTConnectorShipRequest _tntCon;
         private BusinessCentralConnector _ECon;
 
-        public ShippingForm(ShippingPostalAddress thisShipment, TNTConnectorShipRequest tntCon, BusinessCentralConnector ECon)
+        public ShippingForm(TNTConnectorShipRequest tntCon, BusinessCentralConnector ECon)
         {
             InitializeComponent();
             _busy = false;
-            _thisShipment = thisShipment;
+            //_thisShipment = thisShipment;
             _tntCon = tntCon;
             _ECon = ECon;
             _register_tntCon_listeners();
+        }
+
+        public void showMyDialog(ShippingPostalAddress thisShipment, Form caller)
+        {
+            this._thisShipment = thisShipment;
             nameTextBox.Text = _thisShipment.ShipToName;
             orderNumberTextBox.Text = _thisShipment.Number;
             actionTextBox.Text =
                 _thisShipment.PackageTrackingNo == "" ?
                     "Sign up a new package at TNT and print the documents" :
                     "Print documents only (package already signed up)";
+            this.ShowDialog(caller);
         }
 
         private void closeButton_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.clear();
+        }
+
+        private void clear()
+        {
+            //reset instance variables
+            this._thisShipment = null;
+            //reset inputs
+            this.nameTextBox.ResetText();
+            this.orderNumberTextBox.ResetText();
+            this.actionTextBox.ResetText();
+            this.messageTextBox.ResetText();
+            this.labelTextBox.ResetText();
+            this.manifestTextBox.ResetText();
+            this.connoteTextBox.ResetText();
+            this.invoiceTextBox.ResetText();
+            this.trackingnoTextBox.ResetText();
+            this.trackingnoMessageTextBox.ResetText();
+            this.signUpButton.Enabled = true;
         }
 
         private void ShippingForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -67,6 +92,7 @@ namespace BusinessCentralTNTConnector
         {
             _busy = true;
             messageTextBox.Text = "Sending Consignment Request...";
+            signUpButton.Enabled = false;
             TNTShipRequest.RequestTypes type = (_thisShipment.PackageTrackingNo == "") ?
                 TNTShipRequest.RequestTypes.Full :
                 TNTShipRequest.RequestTypes.PrintOnly;

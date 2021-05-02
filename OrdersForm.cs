@@ -21,12 +21,15 @@ namespace BusinessCentralTNTConnector
 
         private MDIParent1 _owner;  //the MDIParent is not the MDIParent1 object but its superclass
 
+        private ShippingForm shipping;
+
         public OrdersForm(MDIParent1 owner)
         {
             _owner = owner;
             InitializeComponent();
             shippingPostalAddressBindingSource.AllowNew = false; //locked
             dateTimePicker1.Value = DateTime.Today;
+            shipping = new ShippingForm(_owner.TNTCon, _owner.ECon);
             GetOrders();   //async probleempje, waar moeten de excepties naartoe?
         }
 
@@ -79,8 +82,7 @@ namespace BusinessCentralTNTConnector
                 cur.ShippingAgentCode == BCShippingAgentTNTCode
             )
             {
-                Form shipping = new ShippingForm(cur, _owner.TNTCon, _owner.ECon);
-                shipping.ShowDialog(this);
+                shipping.showMyDialog(cur, this);
             }
             else
             {
