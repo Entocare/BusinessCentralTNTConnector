@@ -78,7 +78,7 @@ namespace BusinessCentralTNTConnector
             ShippingPostalAddress cur = (ShippingPostalAddress)shippingPostalAddressBindingSource.Current;
             if (
                 cur != null && 
-                cur.Shipped != null && (bool)cur.Shipped &&
+                cur.SumStatus == ShippingPostalAddress.SumStatusses.ReadyForShip &&
                 cur.ShippingAgentCode == BCShippingAgentTNTCode
             )
             {
@@ -88,7 +88,7 @@ namespace BusinessCentralTNTConnector
             {
                 if (cur == null)
                     MessageBox.Show("Please select an order first");
-                else if (cur.Shipped == null || !(bool)cur.Shipped)
+                else if (cur.SumStatus != ShippingPostalAddress.SumStatusses.ReadyForShip)
                     MessageBox.Show("Not ready for shipping!");
                 else if (cur.ShippingAgentCode != BCShippingAgentTNTCode)
                     MessageBox.Show("Not a TNT shipment!");
