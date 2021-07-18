@@ -18,6 +18,7 @@ namespace BusinessCentralTNTConnector
     public partial class OrdersForm : Form
     {
         public static readonly string BCShippingAgentTNTCode = "TNT";
+        public static readonly bool CheckOrderStatus = false;
 
         private MDIParent1 _owner;  //the MDIParent is not the MDIParent1 object but its superclass
 
@@ -77,9 +78,9 @@ namespace BusinessCentralTNTConnector
         {
             ShippingPostalAddress cur = (ShippingPostalAddress)shippingPostalAddressBindingSource.Current;
             if (
-                cur != null && 
-                cur.SumStatus == ShippingPostalAddress.SumStatusses.ReadyForShip &&
-                cur.ShippingAgentCode == BCShippingAgentTNTCode
+                cur != null 
+                && (!CheckOrderStatus || cur.SumStatus == ShippingPostalAddress.SumStatusses.ReadyForShip)
+                && cur.ShippingAgentCode == BCShippingAgentTNTCode
             )
             {
                 shipping.showMyDialog(cur, this);
@@ -88,7 +89,7 @@ namespace BusinessCentralTNTConnector
             {
                 if (cur == null)
                     MessageBox.Show("Please select an order first");
-                else if (cur.SumStatus != ShippingPostalAddress.SumStatusses.ReadyForShip)
+                else if (CheckOrderStatus && cur.SumStatus != ShippingPostalAddress.SumStatusses.ReadyForShip)
                     MessageBox.Show("Not ready for shipping!");
                 else if (cur.ShippingAgentCode != BCShippingAgentTNTCode)
                     MessageBox.Show("Not a TNT shipment!");
